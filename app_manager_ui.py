@@ -63,8 +63,6 @@ def calculate_totals():
     return monthly_usd, monthly_brl, yearly_usd, yearly_brl
 
 
-
-
 # --- UI Helpers ---
 def refresh_table():
     for item in table.get_children():
@@ -177,10 +175,13 @@ table.pack(fill="both", expand=True, padx=10, pady=10)
 frame_btns = ttk.Frame(root)
 frame_btns.pack(pady=5)
 
-ttk.Button(frame_btns, text="Adicionar", command=add_service, bootstyle="success").pack(side="left", padx=5)
-ttk.Button(frame_btns, text="Editar", command=edit_service, bootstyle="warning").pack(side="left", padx=5)
-ttk.Button(frame_btns, text="Remover", command=delete_service, bootstyle="danger").pack(side="left", padx=5)
+# Define o tamanho padrão baseado no maior texto ("Adicionar")
+button_width = 10  # Aproximadamente o número de caracteres do maior texto
 
+ttk.Button(frame_btns, text="Adicionar", command=add_service, bootstyle="success", width=button_width).pack(side="left", padx=5)
+ttk.Button(frame_btns, text="Editar", command=edit_service, bootstyle="warning", width=button_width).pack(side="left", padx=5)
+ttk.Button(frame_btns, text="Remover", command=delete_service, bootstyle="danger", width=button_width).pack(side="left", padx=5)
+ttk.Button(frame_btns, text="Sair", command=root.destroy, bootstyle="secondary", width=button_width).pack(side="left", padx=5)
 
 # Totais
 totals_frame = ttk.Frame(root, padding=10, bootstyle="info")  # fundo azul claro
